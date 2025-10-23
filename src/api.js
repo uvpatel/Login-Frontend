@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "/api/users", // proxy will forward to deployed backend
+  baseURL:
+    import.meta.env.DEV
+      ? "/api/users" // proxy only in dev
+      : "https://login-backend-2-eq1g.onrender.com/api/users", // deployed backend
 });
 
 export default API;
